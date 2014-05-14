@@ -24,7 +24,7 @@ static NSInteger pushCounter = 0;
 }
 
 - (IBAction)pushNowAction:(UIButton *)sender {
-    [AGPushNoteView showWithNotificationMessage:[NSString stringWithFormat:@"%d", pushCounter++]];
+    [AGPushNoteView showWithNotificationMessage:[NSString stringWithFormat:@"%ld", (long)pushCounter++]];
     [AGPushNoteView setMessageAction:^(NSString *message) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUSH"
                                                         message:message
