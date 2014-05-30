@@ -5,6 +5,11 @@
 //  Created by Aviel Gross on 1/29/14.
 //  Copyright (c) 2014 NGSoft. All rights reserved.
 //
+//
+// Changes from original: // SE May 14, 2014
+//       enable autoclose and close after 3 seconds.
+//       disabled and hid close button.
+
 
 #import "AGPushNoteView.h"
 
@@ -142,8 +147,12 @@ static AGPushNoteView *_sharedPushView;
             }
         }];
         
-        //Start timer (Currently not used to make sure user see & read the push...)
-        PUSH_VIEW.closeTimer = [NSTimer scheduledTimerWithTimeInterval:CLOSE_PUSH_SEC target:[AGPushNoteView class] selector:@selector(close) userInfo:nil repeats:NO];
+        //Start timer
+        PUSH_VIEW.closeTimer = [NSTimer scheduledTimerWithTimeInterval:CLOSE_PUSH_SEC
+                                                                target:[AGPushNoteView class]
+                                                              selector:@selector(close)
+                                                              userInfo:nil
+                                                               repeats:NO];
     }
 }
 + (void)closeWitCompletion:(void (^)(void))completion {
